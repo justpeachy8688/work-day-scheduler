@@ -19,26 +19,36 @@
     <p class="lead">A simple calendar app for scheduling your work day</p>
     <p id="currentDay" class="lead"></p>
   </header>
-  <div class="container">
+  <div id="time-blocks" class=" container">
     <!-- Timeblocks go here -->
     <!--9 Rows-->
     <!--Each Row as it's own ID (hour 1, hour 2- grab by ID)-->
     <!--Set all classess to hours?-->
-    <div id="hour1" class="row hour">9AM</div>
-    <div id="hour2" class="row hour">10AM</div>
+    <!-- <div id="hour1" class="row time-block">
+      <div class="col-2 hour">9AM</div>
+      <div class="col">
+        <textarea name="hour-note" rows="3"></textarea>
+      </div>
+      <div class="col-2">
+        <button class="saveBtn"><i class="fas fa-save"></i></button>
+      </div>
+    </div> -->
+
+    <!--<div id="hour2" class="row hour">10AM</div>
     <div id="hour3" class="row hour">11AM</div>
     <div id="hour4" class="row hour">12AM</div>
     <div id="hour5" class="row hour">1PM</div>
     <div id="hour6" class="row hour">2PM</div>
     <div id="hour7" class="row hour">3PM</div>
     <div id="hour8" class="row hour">4PM</div>
-    <div id="hour9" class="row hour">5PM</div>
+    <div id="hour9" class="row hour">5PM</div>-->
 
 
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
