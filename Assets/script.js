@@ -19,9 +19,12 @@
 // var date = new Date('2021/1/24');
 // var dateString = moment(date).add(6, 'months').format('1');
 // console.log(date);
+var todayString = moment().format("dddd, MMMM Do YYYY");
+console.log(todayString)
 
-var d = new Date();
-document.getElementById("navbar-subtitle").innerHtml = d;
+var d = moment();
+document.getElementById("navbar-subtitle").innerHTML = todayString;
+
 
 var timeBlocks = document.getElementById("time-blocks");
 
