@@ -20,6 +20,8 @@
 // var dateString = moment(date).add(6, 'months').format('1');
 // console.log(date);
 
+var d = new Date();
+document.getElementById("navbar-subtitle").innerHtml = d;
 
 var timeBlocks = document.getElementById("time-blocks");
 
