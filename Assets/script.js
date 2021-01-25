@@ -1,3 +1,26 @@
+// (function () {
+//     var nowMoment = moment();
+//     var nowDate = newDate();
+
+//     var eDisplayMoment = document.getElementById("displayMoment");
+//     eDisplayMoment.innerHTML = nowMoment;
+
+//     var eDisplayDate = document.getElementById("displayJsDate");
+//     eDisplayDate.innerHTML = nowDate;
+// })();
+// var NowMoment = moment();
+// var eDisplayMoment = document.getElementById("displayMoment");
+// eDisplayMoment.innerHTML = NowMoment.format('YYYY-M-D');
+// var date = '2021-01-24';
+// var format = 'LLLL';
+// var result = moment(date).format(format);
+// console.log(result);
+
+// var date = new Date('2021/1/24');
+// var dateString = moment(date).add(6, 'months').format('1');
+// console.log(date);
+
+
 var timeBlocks = document.getElementById("time-blocks");
 
 var createTimeBlock = function (hour) {
@@ -35,8 +58,6 @@ var endTime = 16;
 for (var hour = startTime; hour <= endTime; hour++) {
     createTimeBlock(hour)
 }
-
-moment(testDate).format('MM/DD/YYYY');
 
 // createTimeBlock(8)
 // createTimeBlock(9)
