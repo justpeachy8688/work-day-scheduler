@@ -25,31 +25,33 @@ console.log(todayString)
 var d = moment();
 document.getElementById("navbar-subtitle").innerHTML = todayString;
 
+//need past, present, future for color of time blocks
+// if/else if/else statement setting a different css class in each one//
 
 var timeBlocks = document.getElementById("time-blocks");
 
 var createTimeBlock = function (hour) {
     var timeBlock = document.createElement("div")
     timeBlock.className = "row time-block"
+    timeBlock.setAttribute("id", hour);
 
     var hourCol = document.createElement("div")
-    hourCol.className = "col-2 hour"
-    hourCol.textContent = hour + "AM"
-
+    hourCol.className = "col-md-1 hour"
+    hourCol.textContent = hour + ":00"
     var noteCol = document.createElement("div")
-    noteCol.className = "col"
+    noteCol.className = "col-md-10"
     var noteTextArea = document.createElement("textarea")
     noteTextArea.className = "description"
     noteCol.append(noteTextArea)
 
     var saveCol = document.createElement("div")
-    saveCol.className = "col-2"
+    saveCol.className = "col-md-1"
     var saveBtn = document.createElement("button")
-    saveBtn.className = "saveBtn"
+    saveBtn.className = "btn saveBtn"
     var saveIcon = document.createElement("i")
     saveIcon.className = "fas fa-save"
-    saveBtn.append(saveIcon)
     saveCol.append(saveBtn)
+    saveBtn.append(saveIcon)
 
     saveBtn.addEventListener("click", function () {
         console.log(hour)
@@ -59,11 +61,31 @@ var createTimeBlock = function (hour) {
     timeBlocks.append(timeBlock);
 }
 var startTime = 8;
-var endTime = 16;
+var endTime = 17;
 for (var hour = startTime; hour <= endTime; hour++) {
     createTimeBlock(hour)
 }
 
+var hourUpdater = function () {
+    var currentHour = moment().hour();
+    $(".time-block").each(function () {
+        var getHour = parseInt($(this).attr("id"));
+        if (getHour < currentHour) {
+            $(this).addClass("past");
+        } else if (getHour === currentHour) {
+            $(this).addClass("present");
+            $(this).removeClass("past")
+        } else {
+            $(this).addClass("future");
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+        }
+    });
+}
+hourUpdater();
+var interval = setInterval(hourUpdater, 10000);
+
+// console.log(moment().hour());
 // createTimeBlock(8)
 // createTimeBlock(9)
 // createTimeBlock(10)
