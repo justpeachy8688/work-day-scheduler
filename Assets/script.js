@@ -5,15 +5,17 @@ console.log(todayString)
 var d = moment();
 document.getElementById("navbar-subtitle").innerHTML = todayString;
 
-$(document).ready(function () {
-    //saveBtn click listener
-    $(".saveBtn").on("click", function () {
-        var text = $(this).siblings(".description").val();
-        var time = $(this).parent().attr("id");
-        // Save text in local storage
-        localStorage.setItem(time, text);
-    })
-});
+
+// saveBtn click listener
+// $(".saveBtn").on("click", function () {
+//     var text = $(this).siblings(".description").val();
+//     var time = $(this).parent().attr("id");
+//     // Save text in local storage
+//     localStorage.setItem(hour, text);
+// })
+// // });
+// console.log($(this).parent());
+// console.log($(this)siblings);
 
 var timeBlocks = document.getElementById("time-blocks");
 
