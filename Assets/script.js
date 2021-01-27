@@ -1,32 +1,19 @@
-// (function () {
-//     var nowMoment = moment();
-//     var nowDate = newDate();
-
-//     var eDisplayMoment = document.getElementById("displayMoment");
-//     eDisplayMoment.innerHTML = nowMoment;
-
-//     var eDisplayDate = document.getElementById("displayJsDate");
-//     eDisplayDate.innerHTML = nowDate;
-// })();
-// var NowMoment = moment();
-// var eDisplayMoment = document.getElementById("displayMoment");
-// eDisplayMoment.innerHTML = NowMoment.format('YYYY-M-D');
-// var date = '2021-01-24';
-// var format = 'LLLL';
-// var result = moment(date).format(format);
-// console.log(result);
-
-// var date = new Date('2021/1/24');
-// var dateString = moment(date).add(6, 'months').format('1');
-// console.log(date);
+//Display today's date and time
 var todayString = moment().format("dddd, MMMM Do YYYY");
 console.log(todayString)
 
 var d = moment();
 document.getElementById("navbar-subtitle").innerHTML = todayString;
 
-//need past, present, future for color of time blocks
-// if/else if/else statement setting a different css class in each one//
+$(document).ready(function () {
+    //saveBtn click listener
+    $(".saveBtn").on("click", function () {
+        var text = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
+        // Save text in local storage
+        localStorage.setItem(time, text);
+    })
+});
 
 var timeBlocks = document.getElementById("time-blocks");
 
@@ -65,7 +52,7 @@ var endTime = 17;
 for (var hour = startTime; hour <= endTime; hour++) {
     createTimeBlock(hour)
 }
-
+// to check the time and add the classes for background color
 var hourUpdater = function () {
     var currentHour = moment().hour();
     $(".time-block").each(function () {
@@ -84,11 +71,4 @@ var hourUpdater = function () {
 }
 hourUpdater();
 var interval = setInterval(hourUpdater, 10000);
-
-// console.log(moment().hour());
-// createTimeBlock(8)
-// createTimeBlock(9)
-// createTimeBlock(10)
-// createTimeBlock(11)
-// createTimeBlock(12)
 
