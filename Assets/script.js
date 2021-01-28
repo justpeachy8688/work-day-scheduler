@@ -5,17 +5,17 @@ console.log(todayString)
 var d = moment();
 document.getElementById("navbar-subtitle").innerHTML = todayString;
 
-$(document).ready(function () {
-    // saveBtn click listener
-    $(".saveBtn").on("click", function () {
-        localStorage.setItem("time", "text");
+// $(document).ready(function () {
+//     // saveBtn click listener
+//     $(".saveBtn").on("click", function () {
+//         localStorage.setItem("time", "text");
 
-        saveBtn.addEventListener("click", function () {
-            console.log(hour)
-        })
+//         saveBtn.addEventListener("click", function () {
+//             console.log(hour)
+//         })
 
-    })
-});
+//     })
+// });
 //     var text = $(this).siblings(".description").val();
 //     var time = $(this).parent().attr("id");
 //     // Save text in local storage
@@ -25,7 +25,7 @@ $(document).ready(function () {
 // console.log($(this).parent());
 // console.log($(this)siblings);
 
-var timeBlocks = document.getElementById("time-blocks");
+var timeBlocks = document.getElementById("time-blocks")
 
 var createTimeBlock = function (hour) {
     var timeBlock = document.createElement("div")
@@ -35,6 +35,7 @@ var createTimeBlock = function (hour) {
     var hourCol = document.createElement("div")
     hourCol.className = "col-md-1 hour"
     hourCol.textContent = hour + ":00"
+
     var noteCol = document.createElement("div")
     noteCol.className = "col-md-10"
     var noteTextArea = document.createElement("textarea")
@@ -52,15 +53,28 @@ var createTimeBlock = function (hour) {
     saveCol.append(saveBtn)
     saveBtn.append(saveIcon)
 
-    saveBtn.addEventListener("click", function () {
-        console.log(hour)
-        localStorage.setItem("time" + hour, "description" + textarea)
+    // saveBtn.addEventListener("click", function () {
+    //     console.log(hour)
+    //     localStorage.setItem("time" + hour, "description" + textarea)
+    //     var text = $("#hour" + hour).val()
 
-    })
+    // })
 
     timeBlock.append(hourCol, noteCol, saveCol)
     timeBlocks.append(timeBlock);
 }
+//Local storage item names
+var stringTime = ["8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"]
+
+$(document).on("click", ".saveBtn", function () {
+    var $parent = $(this).parents(".time-block");
+    var hour = $parent.attr("id");
+    var hourReset = hour - 8;
+    var stringVal = stringTime[hourReset]
+    localStorage.setItem(stringVal, JSON.stringify($("textarea").eq(hourReset).val()));
+});
+
+
 var startTime = 8;
 var endTime = 17;
 for (var hour = startTime; hour <= endTime; hour++) {
@@ -86,3 +100,17 @@ var hourUpdater = function () {
 hourUpdater();
 var interval = setInterval(hourUpdater, 10000);
 
+for (i = 0; i < 10; i++) {
+    // if there is no saved value in local storage continue on
+    if (!JSON.parse(localStorage.getItem(stringTime[i]))) {
+        console.log("blob")
+        continue;
+    }
+    else {
+        // create new variable and set it to the local storage variable = stringTime[i]
+        var savedItems = JSON.parse(localStorage.getItem(stringTime[i]))
+        // set the value for each textarea element = the local storage saved item
+        $("textarea").eq(i).val(savedItems)
+        console.log(savedItems)
+    }
+}
