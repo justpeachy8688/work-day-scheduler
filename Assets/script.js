@@ -5,9 +5,12 @@ console.log(todayString)
 var d = moment();
 document.getElementById("navbar-subtitle").innerHTML = todayString;
 
-
-// saveBtn click listener
-// $(".saveBtn").on("click", function () {
+$(document).ready(function () {
+    // saveBtn click listener
+    $(".saveBtn").on("click", function () {
+        localStorage.setItem("time", "text");
+    })
+});
 //     var text = $(this).siblings(".description").val();
 //     var time = $(this).parent().attr("id");
 //     // Save text in local storage
@@ -30,6 +33,8 @@ var createTimeBlock = function (hour) {
     var noteCol = document.createElement("div")
     noteCol.className = "col-md-10"
     var noteTextArea = document.createElement("textarea")
+    //ID's on text areas
+    noteTextArea.id = "hour" + hour;
     noteTextArea.className = "description"
     noteCol.append(noteTextArea)
 
