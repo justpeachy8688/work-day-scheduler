@@ -9,6 +9,11 @@ $(document).ready(function () {
     // saveBtn click listener
     $(".saveBtn").on("click", function () {
         localStorage.setItem("time", "text");
+
+        saveBtn.addEventListener("click", function () {
+            console.log(hour)
+        })
+
     })
 });
 //     var text = $(this).siblings(".description").val();
@@ -49,6 +54,8 @@ var createTimeBlock = function (hour) {
 
     saveBtn.addEventListener("click", function () {
         console.log(hour)
+        localStorage.setItem("time" + hour, "description" + textarea)
+
     })
 
     timeBlock.append(hourCol, noteCol, saveCol)
