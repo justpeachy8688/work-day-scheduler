@@ -5,26 +5,6 @@ console.log(todayString)
 var d = moment();
 document.getElementById("navbar-subtitle").innerHTML = todayString;
 
-// $(document).ready(function () {
-//     // saveBtn click listener
-//     $(".saveBtn").on("click", function () {
-//         localStorage.setItem("time", "text");
-
-//         saveBtn.addEventListener("click", function () {
-//             console.log(hour)
-//         })
-
-//     })
-// });
-//     var text = $(this).siblings(".description").val();
-//     var time = $(this).parent().attr("id");
-//     // Save text in local storage
-//     localStorage.setItem(hour, text);
-// })
-// // });
-// console.log($(this).parent());
-// console.log($(this)siblings);
-
 var timeBlocks = document.getElementById("time-blocks")
 
 var createTimeBlock = function (hour) {
@@ -52,13 +32,6 @@ var createTimeBlock = function (hour) {
     saveIcon.className = "fas fa-save"
     saveCol.append(saveBtn)
     saveBtn.append(saveIcon)
-
-    // saveBtn.addEventListener("click", function () {
-    //     console.log(hour)
-    //     localStorage.setItem("time" + hour, "description" + textarea)
-    //     var text = $("#hour" + hour).val()
-
-    // })
 
     timeBlock.append(hourCol, noteCol, saveCol)
     timeBlocks.append(timeBlock);
