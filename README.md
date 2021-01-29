@@ -2,7 +2,7 @@
 ![Example Screenshot](assets/rsz_work-day-scheduler-pic.png)
 
 ## Contents of project
-This project contains a index.html, style.css, and a script.js. VView them at the link below.
+This project contains a index.html, style.css, and a script.js. View them at the link below.
 
 [Link to deployed application](https://justpeachy8688.github.io/work-day-scheduler/)
 
