@@ -1,4 +1,5 @@
 # work-day-scheduler
+![Example Screenshot](assets/rsz_work-day-scheduler-pic.png)
 
 ## Contents of project
 This project contains a index.html, style.css, and a script.js. VView them at the link below.
@@ -25,6 +26,3 @@ WHEN I click the save button for that time block
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
-
-
-![Example Screenshot](assets/1rsz_work-day-scheduler-pic.png)
